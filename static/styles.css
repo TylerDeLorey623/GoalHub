@@ -1,0 +1,51 @@
+/* Font family */
+body {
+    font-family: Trebuchet;
+    font-size: 20px;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-image: url(imgs/background.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Button color */
+.btn-primary {
+    background-color: #ff5733;
+    border: #ff5733;
+}
+
+.btn-primary:hover {
+    background-color: #f73505;
+    border: #c13c18;
+}
+
+/* Size for brand */
+nav .navbar-brand {
+    font-size: xx-large;
+}
+
+/* Color for brand */
+nav .navbar-brand {
+    color: #ff8c00;
+}
+
+nav .nav-item:hover {
+    font-size: 25px;
+}
+
+/* About the website styles */
+.about-me {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+}
