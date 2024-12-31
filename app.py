@@ -28,6 +28,25 @@ conn.row_factory = sqlite3.Row
 
 db = conn.cursor()
 
+# Initialize database tables
+with app.app_context():
+    db.execute("""CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+    username TEXT UNIQUE NOT NULL, 
+    password_hash TEXT NOT NULL, 
+    registration_date DATETIME DEFAULT CURRENT_TIMESTAMP)""")
+
+    db.execute("""CREATE TABLE goals (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    user_id INTEGER NOT NULL, 
+    priority TEXT NOT NULL, 
+    goal TEXT NOT NULL, 
+    goal_date DATE NOT NULL, 
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    FOREIGN KEY(user_id) REFERENCES users(id))""")
+
+    conn.commit()
+
 
 @app.after_request
 def after_request(response):
