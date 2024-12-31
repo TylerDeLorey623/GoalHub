@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Goals
+{% endblock %}
+
+{% block main %}
+    <h1>Create a Goal!</h1>
+    <hr>
+    <form action="/create" method="post">
+        <div class="mb-3">
+            <p> Select Priority of Goal: </p>
+            <select class="form-control mx-auto w-auto" name="priority">
+                <option disabled selected value="">Select Priority</option>
+                <option>Very High</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+                <option>Very Low</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <p> Write your Goal here: </p>
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="goal" placeholder="Enter Goal" type="text">
+        </div>
+        <div class="mb-3">
+            <p> Goal Completion Date: </p>
+            <input type="date" name="date">
+        </div>
+        <button class="btn btn-primary" type="submit">Create Goal</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Remove Goals
+{% endblock %}
+
+{% block main %}
+    <h1>Remove a Goal!</h1>
+    <hr>
+    {% if not goals %}
+        <p style="color: red;">You have no goals to remove! Start by making some!</p>
+    {% else %}
+        <p>We hope you are removing goals because you are done with them, not because you gave up!</p>
+        <form action="/remove" method="post">
+            <div class="mb-3">
+                <select class="form-control mx-auto w-auto" name="selectedGoal">
+                    <option disabled selected value="">Select Goal to Remove</option>
+                    {% for goal in goals %}
+                        <option>{{ goal["goal"] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Remove Goal</button>
+        </form>
+    {% endif %}
+{% endblock %}

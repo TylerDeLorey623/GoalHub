@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Progress
+{% endblock %}
+
+{% block main %}
+    <h1>{{ user }}'s Goals</h1>
+    <hr>
+    {% if not goals %}
+        <p style="color: red;">You have no goals right now. Make some!</p>
+    {% else %}
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Priority</th>
+                    <th>Goal</th>
+                    <th>Goal Completion Date</th>
+                    <th>Date Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for goal in goals %}
+                    <tr>
+                        <td>{{ goal["priority"] }}</td>
+                        <td>{{ goal["goal"] }}</td>
+                        <td>{{ goal["goal_date"] | todate }}</td>
+                        <td>{{ goal["timestamp"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form action="/progress" method="post">
+            <div class="mt-5 mb-3">
+                <p>Sorting Options:</p>
+                <select class="form-control mx-auto w-auto" name="sort">
+                    <option disabled selected value="">Sorting Option</option>
+                    <option>Priority</option>
+                    <option>Goal Completion Date</option>
+                    <option>Date Submitted</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <input type="radio" name="order" value="Ascending"> Ascending
+                <br>
+                <input type="radio" name="order" value="Descending"> Descending
+            </div>
+            <button class="btn btn-primary" type="submit">Sort Progress Table</button>
+        </form>
+    {% endif %}
+{% endblock %}
