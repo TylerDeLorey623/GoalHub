@@ -1,0 +1,11 @@
+# Ignore Python bytecode files
+__pycache__/
+
+# Ignore virtual environment folder
+env/
+
+# Ignore Flask session files
+flask_session/
+
+# Ignore SQLite database file
+goalhub.db
