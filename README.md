@@ -30,3 +30,6 @@ GoalHub's backend is built using Flask and sqlite3. The backend handles user req
 - **goalhub.db**: The database that contains all information about GoalHub in its two tables, *users* and *goals*. Accessing this database and changing its contents is all done in specific routes in the app.py file.
 
 When a user visits the site, Flask routes determine which HTML page should be displayed. If the user interacts with the site (like using the navigation bar or submitting a form), Flask handles the requests, interacts with the SQLite3 database, and returns the necessary response. The helpers.py functions ensure security (login authentication) and data consistency (date formatting).
+
+#### How to Use (Flask on Linux):
+GoalHub is very easy to use once python is installed on your machine. Firstly, if you want, create a virtual environment using *python3 -m venv env* to create an environment named "env" (can be named whatever you want). Then, to activate the environment, do the command *source env/bin/activate*. Then, to install all of the app's requirements, run *pip install -r requirements.txt*. After this, use *flask run* and click the link to open up the website.
